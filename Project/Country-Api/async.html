@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Functions</title>
+    <script>
+
+
+        </script>
+</head>
+<body>
+<script>
+let pr0=new Promise((resolve,reject)=>{
+ setTimeout(() => {
+    resolve('This is promise0')
+ }, 5000);
+   
+})
+let pr1=new Promise((resolve,reject)=>{
+ setTimeout(() => {
+    resolve('This is promise1')
+ }, 10000);
+   
+})
+
+function fetchurl()
+{
+    setTimeout(()=>{
+        return fetch(`https://restcountries.com/v3.1/name/kdfkdjf`);
+    },5000)
+}
+// async function
+
+
+//  async function learnAsync()
+// {
+//     console.log('hi');
+//     try{
+//         let response= await fetch(`https://restcountries.com/v3.1/name/india`);
+//         console.log('hiiiii');
+//         console.log(response);
+//     }
+//    catch(error){
+//     console.log('unable to fetch');
+//    }
+// //    if(response.ok)
+// //    {
+// //     console.log("waited")
+// //    }
+// //    let data =  await response.json();
+// //    console.log(data);
+
+// }
+// learnAsync().catch(function(error)
+// {
+//     console.log('unable to fetch');
+// });
+
+
+
+// function getPromise()
+// {
+//     pr0.then(function(data){
+//         console.log(data)
+//         console.log("hello");
+//     })
+    
+// }
+
+// getPromise();
+
+async function learnAsync() {
+    console.log('hi');
+    try {
+        let response = await fetch(`https://restcountries.com/v3.1/najjhme/indiahghggjg`); // Set timeout to 5 seconds (5000 milliseconds)
+        if (!response.ok) {
+            throw new Error('Unable to fetch');
+        }
+        console.log('hiiiii');
+        console.log(response);
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log('Error:', error.message);
+    }
+}
+
+learnAsync();
+
+</script>
+</body>
+</html>
