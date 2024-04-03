@@ -1,16 +1,20 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState,useRef} from 'react'
 import './AddTask.css'
 import Task from './Task'
 export default function AddTask({tasks,setTask}) {
-const[newtask,setnewTask]=useState('')
+  console.log('AddTask')
+// const[newtask,setnewTask]=useState('')
+
+const vref=useRef();
+
 function newTask(event)
 {
-   setnewTask(event.target.value)
+  console.log(vref.current.value)
 }
 function delTask()
 {
-    setnewTask('')
+  
 }
 function addnewTask(event)
 {
@@ -19,7 +23,7 @@ function addnewTask(event)
 
 const createtask={
   id:Math.floor(Math.random()*100),
-  name:newtask,
+  name:vref.current.value,
   completed:false
 }
 
@@ -30,11 +34,11 @@ setTask([...tasks,createtask])
     <div className='addTask'>
     <form >
     <label htmlFor="">Task</label>
-    <input type="text" name='newtask' id='newtask' onChange={newTask} value={newtask}/>
+    <input type="text" name='newtask' id='newtask' onChange={newTask}  ref={vref}/>
     <button className='btn addtask' onClick={addnewTask}>Add Task</button>
     <span className='btn cleartask' onClick={delTask}>Clear</span>
     </form>
-        <h1>{newtask}</h1>
+        <h1></h1>
 
     </div>
   )
