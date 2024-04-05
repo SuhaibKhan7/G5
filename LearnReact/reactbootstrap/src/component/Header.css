@@ -1,0 +1,20 @@
+.header{
+    background-color: antiquewhite;
+    padding: 20px;
+}
+.header ul{
+    display: flex;
+}
+.header ul li{
+    margin-right: 15px;
+    list-style-type: none;
+}
+.header ul a{
+    text-decoration: none;
+}
+.header .btn{
+    background-color: red;
+}
+.btn{
+    background-color: yellowgreen;
+}
