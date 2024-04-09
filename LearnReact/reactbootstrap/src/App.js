@@ -1,12 +1,15 @@
 import React from 'react'
 import Header from './component/Header'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
+import TopSection from './component/TopSection'
+import CardData from './component/CardData'
 
 export default function App() {
   return (
     <>
-        <Header/>  
+        <Header/> 
+        <TopSection/> 
+        <CardData/>
      
     </>
   )
