@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Card from './Card';
 export default function CardData() {
     function makeid(length) {
         let result = '';
@@ -33,32 +33,18 @@ export default function CardData() {
         }
        
     ];
-
-
-
-
-
-
-
   return (
-    <div className='d-flex gap-3'>
-        {products.map((p)=>
-        {
-          return  (
-            <div>
-              <div className="card">
-                     <img src={p.img} className="card-img-top" alt="..."/>
-                      <div className="card-body">
-                          <h5 class="card-title">{p.title}</h5>
-                          <p class="card-text">{p.des}.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-              </div>
-                  
-         </div>)
-            }
-          )}
 
-    </div>
+    <section className='d-flex'>
+     
+      {products.map((p)=>{
+
+       return <Card id={p.id} title={p.title} des={p.des} img={p.img}/>
+      })}
+      
+    </section>
+
   )
+
+  
 }
