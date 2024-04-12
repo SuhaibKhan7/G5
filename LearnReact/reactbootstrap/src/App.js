@@ -8,11 +8,11 @@ import LearnUseEffect from './component/LearnUseEffect'
 export default function App() {
   return (
     <>
-        {/* <Header/> 
+      {/* <Header/> 
         <TopSection/> 
         <CardData/> */}
-        {/* <LearnUseEffect/> */}
-     
+      <LearnUseEffect />
+
     </>
   )
 }

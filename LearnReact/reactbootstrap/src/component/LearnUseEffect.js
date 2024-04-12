@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 export default function LearnUseEffect() {
     const[counter,setCounter]=useState(0)
-   console.log("Enter◀︎")
+       console.log("Enter◀︎")
 
         useEffect( ()=>{
 

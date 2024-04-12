@@ -1,0 +1,7 @@
+{
+"products":[  {"id":"1","pname":"Mobile","price":"5000","instock":"true"},
+                {"id":"2","pname":"laptop","price":"89000","instock":"true"},
+                {"id":"3","pname":"pendrive","price":"600","instock":"true"},
+                {"id":"4","pname":"keyboard","price":"1500","instock":"true"}
+]
+}
