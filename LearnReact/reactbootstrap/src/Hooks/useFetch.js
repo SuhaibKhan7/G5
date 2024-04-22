@@ -9,12 +9,10 @@ export function useFetch(url) {
                 if (!response.ok) {
                     throw new Error(`Failed to fetch ${response.status}`)
                 }
-
                 let result = await response.json();
                 {
                     setData(result);
                 }
-
             }
             catch (error) {
                 console.log(error)
@@ -26,5 +24,4 @@ export function useFetch(url) {
     }, [url])
 
     return {data,error};
-
 }
