@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 export function useFetch(url) {
     const [data, setData] = useState([])
-    const[error,setError]=useState(null);
+    const [error, setError] = useState(null);
     useEffect(() => {
         const getdata = async () => {
             try {
@@ -23,5 +23,5 @@ export function useFetch(url) {
 
     }, [url])
 
-    return {data,error};
+    return { data, error };
 }
