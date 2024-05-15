@@ -1,52 +1,55 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+
 export default function Singup() {
     const [formdata, setFormdata] = useState({
-        username: '',
+        username: ''
 
     })
-    function handlesubmit(e) {
-        e.preventDefault();
-        try{
-            const response = fetch('http://localhost:4001/singup',{
-            method:'POST',
-            body:JSON.stringify(formdata),
-            headers:{
-                'Content-Type':'application/json'
-            }
+
+    async function getinfo() {
+        const response = await fetch("http://localhost:5000/data")
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+    }
+    async function senddata(e) {
+        try {
+            const response = await fetch("http://localhost:5000/data", {
+                method: 'POST',
+                body: JSON.stringify(formdata),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
+            
             console.log(response);
-            const data=response.json();
+            const data = await response.json();
             console.log(data);
 
-
         }
-catch{
-
-}
-
-
-
-
-
+        catch (error) {
+            console.log(error)
+        }
     }
 
 
-
-    function inputchange(e) {
+    function handleinput(e) {
         setFormdata({ ...formdata, [e.target.name]: e.target.value })
     }
 
+
     return (
         <div>
-            <form action="" onSubmit={handlesubmit}>
-                <input type="text" name='username' onChange={inputchange} />
-                <button type='submit'>save</button>
 
-
+            <form action="">
+                <input type="text" name='username' onChange={handleinput} />
+                <button onClick={senddata}>save</button>
             </form>
 
 
+
+
+            <button onClick={getinfo}>getinfo</button>
         </div>
     )
 }
