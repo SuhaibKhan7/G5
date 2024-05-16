@@ -35,30 +35,24 @@ export default function Singup() {
         setFormdata({ ...formdata, [e.target.name]: e.target.value })
     }
 
-
-
-
-async function handlelogin(e) {
+    async function handlelogin(e) {
         e.preventDefault();
-        try {
-
-            const response = await fetch("http://localhost:5000/login", {
-                method: 'POST',
-                body: JSON.stringify(formdata),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+        const response = await fetch("http://localhost:5000/login", {
+            method: 'POST',
+            body: JSON.stringify(formdata),
+            headers: {
+                'Content-Type': 'application/json'
             }
-            )
-            console.log(response);
-            const data = await response.json();
-            console.log(data);
-        }
-        catch (error) {
-            console.log('Login not successfull')
-        }
+
+        })
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
 
     }
+
+
+
 
     return (
         <div>
@@ -68,11 +62,15 @@ async function handlelogin(e) {
 
                 <button type='submit'>Singup</button>
             </form>
-
+            <br />
+            <br />
             <form action="" onSubmit={handlelogin}>
                 <input type="text" name='username' onChange={handleinput} />
+                <input type="password" name='password' onChange={handleinput} />
+
                 <button type='submit'>Login</button>
             </form>
+
 
 
             <button onClick={getinfo}>getinfo</button>

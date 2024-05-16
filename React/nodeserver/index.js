@@ -4,11 +4,10 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 
 
-
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb+srv://singup:rdgeX2uuNPRyARne@cluster67376.kmci2em.mongodb.net/?retryWrites=true&w=majority&appName=Cluster67376');
+    await mongoose.connect('mongodb+srv://singup:dgDao0zoF8ssh4vz@cluster67376.kmci2em.mongodb.net/?retryWrites=true&w=majority&appName=Cluster67376');
 
     // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
@@ -17,7 +16,10 @@ const userSchema = new mongoose.Schema({
     username: String,
     password: String
 });
+
 const User = mongoose.model('userdata', userSchema);
+
+
 
 
 const server = express();
@@ -31,31 +33,37 @@ server.get('/data', (req, res) => {
     res.send('hi');
 })
 server.post('/data', (req, res) => {
-    const user = new User();
-    user.username = req.body.username,
-        user.password = req.body.password
+    const user = User();
+    user.username = req.body.username;
+    user.password = req.body.password;
     user.save();
+    res.send({ msg: 'data Received' })
 
-
-    console.log(req.body.username)
-    res.send({ msg: "Data rec" })
 })
+
 server.post('/login', async (req, res) => {
-    res.send({ msg: 'under login' })
-    const user = new User();
-    const loginname = req.body.username;
+    // const user = User();
+    const loginuser = req.body.username;
 
+    try {
+        const usr = await User.findOne({ username: loginuser })
 
-    const validuser = await user.find({ username: loginname })
+        if (usr) {
+            res.json({ msg: 'Login Successfull' })
+        }
+        // else {
+        //     res.json({ msg: 'login unsuccessfull' })
+        // }
 
-    if (validuser) {
-        res.send({ msg: 'loginsuccessfull' })
+    } catch (error) {
+        console.log('error: ' + error);
     }
-    else {
-        res.send({ msg: 'login unsuccessfull' })
-    }
+
+
+
 
 })
+
 
 
 
