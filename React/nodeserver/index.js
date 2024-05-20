@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 
 
@@ -49,11 +48,11 @@ server.post('/login', async (req, res) => {
         const usr = await User.findOne({ username: loginuser })
 
         if (usr) {
-            res.json({ msg: 'Login Successfull' })
+            res.send({ msg: 'Login Successfull' })
         }
-        // else {
-        //     res.json({ msg: 'login unsuccessfull' })
-        // }
+        else {
+            res.json({ msg: 'login unsuccessfull' })
+        }
 
     } catch (error) {
         console.log('error: ' + error);
@@ -63,9 +62,6 @@ server.post('/login', async (req, res) => {
 
 
 })
-
-
-
 
 
 

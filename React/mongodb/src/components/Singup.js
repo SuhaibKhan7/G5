@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 export default function Singup() {
     const [formdata, setFormdata] = useState({
         username: '',
-        password: ''
+        password: '',
+        file: null
 
     })
 
@@ -51,15 +52,12 @@ export default function Singup() {
 
     }
 
-
-
-
     return (
         <div>
             <form action="" onSubmit={senddata}>
                 <input type="text" name='username' onChange={handleinput} />
                 <input type="password" name='password' onChange={handleinput} />
-
+                <input type="file" onChange={handleinput} />
                 <button type='submit'>Singup</button>
             </form>
             <br />
